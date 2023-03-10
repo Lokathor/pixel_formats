@@ -1,4 +1,4 @@
-#![no_std]
+//#![no_std] // needed for f32 functions. TODO: pull in libm or something?
 #![allow(nonstandard_style)]
 
 /// sRGB encoded RGB data, `u8` per channel.
