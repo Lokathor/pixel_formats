@@ -9,7 +9,7 @@
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
 #[repr(C)]
-pub struct r8g8b8Srgb {
+pub struct r8g8b8_Srgb {
   pub r: u8,
   pub g: u8,
   pub b: u8,
@@ -25,7 +25,7 @@ pub struct r8g8b8Srgb {
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
 #[repr(C)]
-pub struct r8g8b8Unorm {
+pub struct r8g8b8_Unorm {
   pub r: u8,
   pub g: u8,
   pub b: u8,
@@ -37,7 +37,7 @@ pub struct r8g8b8Unorm {
 #[derive(Debug, Clone, Copy, Default, PartialEq, PartialOrd)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
 #[repr(C)]
-pub struct r32g32b32Sfloat {
+pub struct r32g32b32_Sfloat {
   pub r: f32,
   pub g: f32,
   pub b: f32,
@@ -49,7 +49,7 @@ pub struct r32g32b32Sfloat {
 #[derive(Debug, Clone, Copy, Default, PartialEq, PartialOrd)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
 #[repr(C)]
-pub struct r32g32b32a32Sfloat {
+pub struct r32g32b32a32_Sfloat {
   pub r: f32,
   pub g: f32,
   pub b: f32,
