@@ -54,6 +54,10 @@ impl From<r8g8b8_Srgb> for r32g32b32_Sfloat {
   }
 }
 
+// todo: rgba srgb
+
+// todo: rgba unorm
+
 /// Linear RGBA data, `f32` per channel.
 ///
 /// * **VK:** `VK_FORMAT_R32G32B32A32_SFLOAT`
