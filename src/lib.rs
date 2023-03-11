@@ -54,9 +54,25 @@ impl From<r8g8b8_Srgb> for r32g32b32_Sfloat {
   }
 }
 
-// todo: rgba srgb
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
+#[repr(C)]
+pub struct r8g8b8a8_Srgb {
+  pub r: u8,
+  pub g: u8,
+  pub b: u8,
+  pub a: u8,
+}
 
-// todo: rgba unorm
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
+#[repr(C)]
+pub struct r8g8b8a8_Unorm {
+  pub r: u8,
+  pub g: u8,
+  pub b: u8,
+  pub a: u8
+}
 
 /// Linear RGBA data, `f32` per channel.
 ///
