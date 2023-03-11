@@ -42,6 +42,17 @@ pub struct r32g32b32_Sfloat {
   pub g: f32,
   pub b: f32,
 }
+impl From<r8g8b8_Srgb> for r32g32b32_Sfloat {
+  #[inline]
+  #[must_use]
+  fn from(r8g8b8_Srgb{r,g,b}: r8g8b8_Srgb) -> Self{
+    r32g32b32_Sfloat {
+      r: srgb_u8_to_linear_f32(r),
+      g: srgb_u8_to_linear_f32(g),
+      b: srgb_u8_to_linear_f32(b),
+    }
+  }
+}
 
 /// Linear RGBA data, `f32` per channel.
 ///
