@@ -22,6 +22,18 @@ impl From<r8g8b8_Srgb> for r8g8b8a8_Srgb {
     Self { r, g, b, a: u8::MAX }
   }
 }
+impl From<r32g32b32a32_Sfloat> for r8g8b8a8_Srgb {
+  #[inline]
+  #[must_use]
+  fn from(r32g32b32a32_Sfloat { r, g, b, a }: r32g32b32a32_Sfloat) -> Self {
+    Self {
+      r: linear_f32_to_srgb_u8(r),
+      g: linear_f32_to_srgb_u8(g),
+      b: linear_f32_to_srgb_u8(b),
+      a: a.mul_add(255.0, 0.5) as u8,
+    }
+  }
+}
 
 /// Linear RGBA data, `u8` per channel.
 ///
