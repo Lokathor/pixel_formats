@@ -26,10 +26,12 @@ pub use _3packed::*;
 #[inline]
 #[must_use]
 pub fn srgb_u8_to_linear_f32(u: u8) -> f32 {
-  let f = (u as f32) / (u8::MAX as f32);
-  if f < 0.04045 {
-    f / 12.92
-  } else {
-    ((f + 0.055) / 1.055).powf(2.4)
-  }
+  fast_srgb8::srgb8_to_f32(u)
+}
+
+/// Converts a linear `f32` value into a `u8` sRGB encoded value.
+#[inline]
+#[must_use]
+pub fn linear_f32_to_srgb_u8(f: f32) -> u8 {
+  fast_srgb8::f32_to_srgb8(f)
 }
