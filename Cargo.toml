@@ -10,5 +10,6 @@ license = "Zlib OR Apache-2.0 OR MIT"
 default = ["bytemuck", "bitfrob"]
 
 [dependencies]
+fast-srgb8 = "1.0.0"
 bitfrob = { version = "1.0.0", optional = true }
 bytemuck = { version = "1.13.1", features = ["derive"], optional=true }
