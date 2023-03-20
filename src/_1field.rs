@@ -17,7 +17,7 @@ pub struct r8_Srgb {
 /// Note that 8 bits is too little precision to encode linear colors well, so
 /// this format is *inherently* a not-great option for doing color work.
 ///
-/// * **GL:** `internalFormat=GL_R8`, `format=GL_RED`, `type=GL_UNSIGNED_BYTE`
+/// * **GL:** `internalFormat=GL_RED`, `format=GL_RED`, `type=GL_UNSIGNED_BYTE`
 /// * **VK:** `VK_FORMAT_R8_UNORM`
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
@@ -28,7 +28,7 @@ pub struct r8_Unorm {
 
 /// Linear Red data, `u16`.
 ///
-/// * **GL:** `internalFormat=GL_R16`, `format=GL_RED`, `type=GL_UNSIGNED_SHORT`
+/// * **GL:** `internalFormat=GL_RED`, `format=GL_RED`, `type=GL_UNSIGNED_SHORT`
 /// * **VK:** `VK_FORMAT_R16_UNORM`
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
@@ -39,7 +39,7 @@ pub struct r16_Unorm {
 
 /// Linear R data, `f32`.
 ///
-/// * **GL:** `internalFormat=GL_R32F`, `format=GL_RGB`, `type=GL_FLOAT`
+/// * **GL:** `internalFormat=GL_RED`, `format=GL_RGB`, `type=GL_FLOAT`
 /// * **VK:** `VK_FORMAT_R32_SFLOAT`
 #[derive(Debug, Clone, Copy, Default, PartialEq, PartialOrd)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
