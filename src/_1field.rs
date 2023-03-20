@@ -26,6 +26,17 @@ pub struct r8_Unorm {
   pub r: u8,
 }
 
+/// Linear Red data, `u16`.
+///
+/// * **GL:** `internalFormat=GL_R16`, `format=GL_RED`, `type=GL_UNSIGNED_SHORT`
+/// * **VK:** `VK_FORMAT_R16_UNORM`
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
+#[repr(C)]
+pub struct r16_Unorm {
+  pub r: u16,
+}
+
 /// Linear R data, `f32`.
 ///
 /// * **GL:** `internalFormat=GL_R32F`, `format=GL_RGB`, `type=GL_FLOAT`
