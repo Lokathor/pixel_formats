@@ -41,8 +41,8 @@ impl From<r32g32b32a32_Sfloat> for r8g8b8a8_Srgb {
 /// this format is *inherently* a not-great option for doing color work.
 ///
 /// * **GL:** `internalFormat=GL_RGBA`, `format=GL_RGBA`,
-///   `type=GL_UNSIGNED_BYTE`
-/// * **VK:** `VK_FORMAT_B8G8R8A8_UNORM`
+///   `type=GL_UNSIGNED_SHORT`
+/// * **VK:** `VK_FORMAT_R8G8B8A8_UNORM`
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
 #[repr(C)]
@@ -51,6 +51,24 @@ pub struct r8g8b8a8_Unorm {
   pub g: u8,
   pub b: u8,
   pub a: u8,
+}
+
+/// Linear RGBA data, `u8` per channel.
+///
+/// Note that 8 bits is too little precision to encode linear colors well, so
+/// this format is *inherently* a not-great option for doing color work.
+///
+/// * **GL:** `internalFormat=GL_RGBA`, `format=GL_RGBA`,
+///   `type=GL_UNSIGNED_BYTE`
+/// * **VK:** `VK_FORMAT_R16G16B16A16_UNORM`
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
+#[repr(C)]
+pub struct r16g16b16a16_Unorm {
+  pub r: u16,
+  pub g: u16,
+  pub b: u16,
+  pub a: u16,
 }
 
 /// Linear RGBA data, `f32` per channel.
