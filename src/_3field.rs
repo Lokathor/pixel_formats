@@ -30,6 +30,19 @@ pub struct r8g8b8_Unorm {
   pub b: u8,
 }
 
+/// Linear RGB data, `u16` per channel.
+///
+/// * **GL:** `internalFormat=GL_RGB`, `format=GL_RGB`, `type=GL_UNSIGNED_SHORT`
+/// * **VK:** `VK_FORMAT_R16G16B16_UNORM`
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
+#[repr(C)]
+pub struct r16g16b16_Unorm {
+  pub r: u16,
+  pub g: u16,
+  pub b: u16,
+}
+
 /// Linear RGB data, `f32` per channel.
 ///
 /// * **GL:** `internalFormat=GL_RGB32F`, `format=GL_RGB`, `type=GL_FLOAT`
