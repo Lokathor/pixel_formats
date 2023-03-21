@@ -2,7 +2,7 @@
 name = "pixel_formats"
 description = "Types for various pixel formats."
 repository = "https://github.com/Lokathor/pixel_formats"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "Zlib OR Apache-2.0 OR MIT"
 
