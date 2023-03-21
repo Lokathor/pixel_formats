@@ -52,6 +52,21 @@ pub struct r8g8b8a8_Unorm {
   pub b: u8,
   pub a: u8,
 }
+impl From<r8g8b8_Unorm> for r8g8b8a8_Unorm {
+  #[inline]
+  #[must_use]
+  fn from(x: r8g8b8_Unorm) -> Self {
+    r8g8b8a8_Unorm { r: x.r, g: x.g, b: x.b, a: 255 }
+  }
+}
+impl From<r32g32b32_Sfloat> for r8g8b8a8_Unorm {
+  #[inline]
+  #[must_use]
+  fn from(x: r32g32b32_Sfloat) -> Self {
+    // convert the floats to u8, then add an alpha channel
+    Self::from(r8g8b8_Unorm::from(x))
+  }
+}
 
 /// Linear RGBA data, `u8` per channel.
 ///

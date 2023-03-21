@@ -44,11 +44,19 @@ impl From<r32g32b32_Sfloat> for r8g8b8_Unorm {
   #[must_use]
   fn from(sf: r32g32b32_Sfloat) -> Self {
     r8g8b8_Unorm {
-      r: (sf.r * (u8::MAX as f32)) as u8,
-      g: (sf.g * (u8::MAX as f32)) as u8,
-      b: (sf.b * (u8::MAX as f32)) as u8,
+      r: sf.r.mul_add(255.0, 0.5) as u8,
+      g: sf.g.mul_add(255.0, 0.5) as u8,
+      b: sf.b.mul_add(255.0, 0.5) as u8,
     }
   }
+}
+#[test]
+#[allow(bad_style)]
+fn r8g8b8_Unorm_from_r32g32b32_Sfloat() {
+  let un = r8g8b8_Unorm::from(r32g32b32_Sfloat { r: 1.0, g: 0.5, b: 0.0 });
+  assert_eq!(un.r, 255);
+  assert_eq!(un.g, 128);
+  assert_eq!(un.b, 0);
 }
 
 /// Linear RGB data, `u16` per channel.
