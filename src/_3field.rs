@@ -12,6 +12,17 @@ pub struct r8g8b8_Srgb {
   pub g: u8,
   pub b: u8,
 }
+impl From<r32g32b32_Sfloat> for r8g8b8_Srgb {
+  #[inline]
+  #[must_use]
+  fn from(sf: r32g32b32_Sfloat) -> Self {
+    r8g8b8_Srgb {
+      r: linear_f32_to_srgb_u8(sf.r),
+      g: linear_f32_to_srgb_u8(sf.g),
+      b: linear_f32_to_srgb_u8(sf.b),
+    }
+  }
+}
 
 /// Linear RGB data, `u8` per channel.
 ///
@@ -28,6 +39,17 @@ pub struct r8g8b8_Unorm {
   pub g: u8,
   pub b: u8,
 }
+impl From<r32g32b32_Sfloat> for r8g8b8_Unorm {
+  #[inline]
+  #[must_use]
+  fn from(sf: r32g32b32_Sfloat) -> Self {
+    r8g8b8_Unorm {
+      r: (sf.r * (u8::MAX as f32)) as u8,
+      g: (sf.g * (u8::MAX as f32)) as u8,
+      b: (sf.b * (u8::MAX as f32)) as u8,
+    }
+  }
+}
 
 /// Linear RGB data, `u16` per channel.
 ///
@@ -40,6 +62,17 @@ pub struct r16g16b16_Unorm {
   pub r: u16,
   pub g: u16,
   pub b: u16,
+}
+impl From<r32g32b32_Sfloat> for r16g16b16_Unorm {
+  #[inline]
+  #[must_use]
+  fn from(sf: r32g32b32_Sfloat) -> Self {
+    r16g16b16_Unorm {
+      r: (sf.r * (u16::MAX as f32)) as u16,
+      g: (sf.g * (u16::MAX as f32)) as u16,
+      b: (sf.b * (u16::MAX as f32)) as u16,
+    }
+  }
 }
 
 /// Linear RGB data, `f32` per channel.
