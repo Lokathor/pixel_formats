@@ -59,8 +59,8 @@ impl r8g8b8a8_Unorm {
 impl From<r8g8b8_Unorm> for r8g8b8a8_Unorm {
   #[inline]
   #[must_use]
-  fn from(x: r8g8b8_Unorm) -> Self {
-    r8g8b8a8_Unorm { r: x.r, g: x.g, b: x.b, a: 255 }
+  fn from(r8g8b8_Unorm { r, g, b }: r8g8b8_Unorm) -> Self {
+    r8g8b8a8_Unorm { r, g, b, a: u8::MAX }
   }
 }
 impl From<r32g32b32_Sfloat> for r8g8b8a8_Unorm {
@@ -72,10 +72,7 @@ impl From<r32g32b32_Sfloat> for r8g8b8a8_Unorm {
   }
 }
 
-/// Linear RGBA data, `u8` per channel.
-///
-/// Note that 8 bits is too little precision to encode linear colors well, so
-/// this format is *inherently* a not-great option for doing color work.
+/// Linear RGBA data, `u16` per channel.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "bytemuck", derive(bytemuck::Pod, bytemuck::Zeroable))]
 #[repr(C)]
@@ -129,5 +126,12 @@ impl From<r8g8b8a8_Unorm> for r32g32b32a32_Sfloat {
       b: (b as f32) / (u8::MAX as f32),
       a: (a as f32) / (u8::MAX as f32),
     }
+  }
+}
+impl From<r32g32b32_Sfloat> for r32g32b32a32_Sfloat {
+  #[inline]
+  #[must_use]
+  fn from(r32g32b32_Sfloat { r, g, b }: r32g32b32_Sfloat) -> Self {
+    Self { r, g, b, a: 1.0 }
   }
 }
