@@ -10,6 +10,12 @@ pub struct r8g8b8a8_Srgb {
   pub b: u8,
   pub a: u8,
 }
+impl r8g8b8a8_Srgb {
+  pub const OPAQUE_BLACK: Self = Self { r: 0, g: 0, b: 0, a: u8::MAX };
+  pub const OPAQUE_WHITE: Self =
+    Self { r: u8::MAX, g: u8::MAX, b: u8::MAX, a: u8::MAX };
+  pub const TRANSPARENT_BLACK: Self = Self { r: 0, g: 0, b: 0, a: 0 };
+}
 impl From<r8g8b8_Srgb> for r8g8b8a8_Srgb {
   /// Adds an alpha channel value of "fully opaque" (`u8::MAX`).
   #[inline]
@@ -44,6 +50,12 @@ pub struct r8g8b8a8_Unorm {
   pub b: u8,
   pub a: u8,
 }
+impl r8g8b8a8_Unorm {
+  pub const OPAQUE_BLACK: Self = Self { r: 0, g: 0, b: 0, a: u8::MAX };
+  pub const OPAQUE_WHITE: Self =
+    Self { r: u8::MAX, g: u8::MAX, b: u8::MAX, a: u8::MAX };
+  pub const TRANSPARENT_BLACK: Self = Self { r: 0, g: 0, b: 0, a: 0 };
+}
 impl From<r8g8b8_Unorm> for r8g8b8a8_Unorm {
   #[inline]
   #[must_use]
@@ -73,6 +85,12 @@ pub struct r16g16b16a16_Unorm {
   pub b: u16,
   pub a: u16,
 }
+impl r16g16b16a16_Unorm {
+  pub const OPAQUE_BLACK: Self = Self { r: 0, g: 0, b: 0, a: u16::MAX };
+  pub const OPAQUE_WHITE: Self =
+    Self { r: u16::MAX, g: u16::MAX, b: u16::MAX, a: u16::MAX };
+  pub const TRANSPARENT_BLACK: Self = Self { r: 0, g: 0, b: 0, a: 0 };
+}
 
 /// Linear RGBA data, `f32` per channel.
 #[derive(Debug, Clone, Copy, Default, PartialEq, PartialOrd)]
@@ -83,6 +101,11 @@ pub struct r32g32b32a32_Sfloat {
   pub g: f32,
   pub b: f32,
   pub a: f32,
+}
+impl r32g32b32a32_Sfloat {
+  pub const OPAQUE_BLACK: Self = Self { r: 0.0, g: 0.0, b: 0.0, a: 1.0 };
+  pub const OPAQUE_WHITE: Self = Self { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
+  pub const TRANSPARENT_BLACK: Self = Self { r: 0.0, g: 0.0, b: 0.0, a: 0.0 };
 }
 impl From<r8g8b8a8_Srgb> for r32g32b32a32_Sfloat {
   #[inline]

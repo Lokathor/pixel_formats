@@ -9,6 +9,10 @@ pub struct r8g8b8_Srgb {
   pub g: u8,
   pub b: u8,
 }
+impl r8g8b8_Srgb {
+  pub const BLACK: Self = Self { r: 0, g: 0, b: 0 };
+  pub const WHITE: Self = Self { r: u8::MAX, g: u8::MAX, b: u8::MAX };
+}
 impl From<r32g32b32_Sfloat> for r8g8b8_Srgb {
   #[inline]
   #[must_use]
@@ -32,6 +36,10 @@ pub struct r8g8b8_Unorm {
   pub r: u8,
   pub g: u8,
   pub b: u8,
+}
+impl r8g8b8_Unorm {
+  pub const BLACK: Self = Self { r: 0, g: 0, b: 0 };
+  pub const WHITE: Self = Self { r: u8::MAX, g: u8::MAX, b: u8::MAX };
 }
 impl From<r32g32b32_Sfloat> for r8g8b8_Unorm {
   #[inline]
@@ -62,6 +70,10 @@ pub struct r16g16b16_Unorm {
   pub g: u16,
   pub b: u16,
 }
+impl r16g16b16_Unorm {
+  pub const BLACK: Self = Self { r: 0, g: 0, b: 0 };
+  pub const WHITE: Self = Self { r: u16::MAX, g: u16::MAX, b: u16::MAX };
+}
 impl From<r32g32b32_Sfloat> for r16g16b16_Unorm {
   #[inline]
   #[must_use]
@@ -82,6 +94,10 @@ pub struct r32g32b32_Sfloat {
   pub r: f32,
   pub g: f32,
   pub b: f32,
+}
+impl r32g32b32_Sfloat {
+  pub const BLACK: Self = Self { r: 0.0, g: 0.0, b: 0.0 };
+  pub const WHITE: Self = Self { r: 1.0, g: 1.0, b: 1.0 };
 }
 impl From<r8g8b8_Srgb> for r32g32b32_Sfloat {
   #[inline]
